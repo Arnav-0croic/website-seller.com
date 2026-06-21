@@ -1,0 +1,880 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Developer Hub - Premium Web Development Services for Retailers</title>
+  <meta name="description"
+    content="Get premium web development services, interactive designs, and custom section purchases. Select your plan and order directly via WhatsApp.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="theme-cyan">
+
+  <!-- ==========================================
+       HEADER & NAVIGATION
+       ========================================== -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <!-- Cube SVG Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+          </path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        <span>Website <span class="text-gradient">Developer Hub</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#sandbox" class="nav-link">Live Builder</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing Plans</a></li>
+        <li><a href="#marketplace" class="nav-link">Section Shop</a></li>
+        <li><a href="#faq" class="nav-link">FAQs</a></li>
+      </ul>
+      <button class="nav-btn" onclick="scrollToElement('sandbox')">Configure Now</button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO BANNER
+       ========================================== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <span class="badge">ðŸ’¡ Future-Ready Code Solutions</span>
+      <h1>Empower Your Business With Premium Web Tech</h1>
+      <p class="hero-description">
+        Unlock high-converting retail websites and customized site sections designed to turn visitors into loyal
+        customers. Customize your layout in real-time, view live estimates, and secure your launch instantly.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToElement('sandbox')">
+          Launch Builder
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+        <button class="btn-secondary" onclick="scrollToElement('pricing')">Explore Tiers</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">150+</span>
+          <span class="stat-label">Retailers Launched</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">99.9%</span>
+          <span class="stat-label">Uptime Guarantee</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24hr</span>
+          <span class="stat-label">Initial Draft Delivery</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <div class="graphic-bg"></div>
+      <div class="wireframe-cube">
+        <div class="mini-row">
+          <div class="wireframe-dot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div class="badge success">Live Sandbox</div>
+        </div>
+        <div class="wireframe-bar active"></div>
+        <div class="wireframe-bar"></div>
+        <div class="wireframe-bar active"></div>
+        <div class="wireframe-bar"></div>
+        <div class="mini-row">
+          <div class="mini-title" style="width: 40%"></div>
+          <div class="mini-btn">Deploy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       INTERACTIVE SITE BUILDER / SANDBOX
+       ========================================== -->
+  <section class="builder-section" id="sandbox">
+    <h2 class="section-title">Interactive <span class="text-gradient">Website Sandbox</span></h2>
+    <p class="section-subtitle">
+      Design your storefront website dynamically. Toggle modules, adjust color schemes, watch live visual
+      representations update, and request quotes instantly.
+    </p>
+
+    <div class="builder-container">
+      <!-- Left: Toggles and Pricing config -->
+      <div class="builder-controls">
+        <div class="control-group">
+          <span class="control-label">1. Choose Base Plan</span>
+          <select id="plan-select" class="theme-selector" onchange="updateBuilderPrice()">
+            <option value="simple">Simple Industrial Website (₹1,500)</option>
+            <option value="city">Local City Advanced Site (₹2,000)</option>
+            <option value="industrial" selected>High-Scale Industrial Web App (₹5,000)</option>
+            <option value="ecommerce">E-Commerce Retail Store (₹7,500)</option>
+            <option value="enterprise">Custom Enterprise Platform (₹10,000)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label">2. Pick Design Theme</span>
+          <select id="theme-select" class="theme-selector" onchange="changePreviewTheme(this.value)">
+            <option value="cyan">Cyberpunk Neon (Cyan)</option>
+            <option value="purple">Royal Amethyst (Indigo/Purple)</option>
+            <option value="amber">Sunset Glow (Amber)</option>
+            <option value="emerald">Emerald Mint (Green)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label">3. Toggle Sections to Add</span>
+          <div class="section-toggles">
+            <label class="toggle-item">
+              <div class="toggle-info">
+                <span class="toggle-name">Navigation Header</span>
+                <span class="toggle-price">Included (Base)</span>
+              </div>
+              <span class="switch">
+                <input type="checkbox" id="toggle-header" checked disabled>
+                <span class="slider"></span>
+              </span>
+            </label>
+
+            <label class="toggle-item">
+              <div class="toggle-info">
+                <span class="toggle-name">Hero Showcase Banner</span>
+                <span class="toggle-price">Included (Base)</span>
+              </div>
+              <span class="switch">
+                <input type="checkbox" id="toggle-hero" checked disabled>
+                <span class="slider"></span>
+              </span>
+            </label>
+
+            <label class="toggle-item">
+              <div class="toggle-info">
+                <span class="toggle-name">Features Grid Section</span>
+                <span class="toggle-price">+ ₹400</span>
+              </div>
+              <span class="switch">
+                <input type="checkbox" id="toggle-features" checked
+                  onchange="togglePreviewBlock('block-features', this.checked)">
+                <span class="slider"></span>
+              </span>
+            </label>
+
+            <label class="toggle-item">
+              <div class="toggle-info">
+                <span class="toggle-name">Testimonials & Social Proof</span>
+                <span class="toggle-price">+ ₹500</span>
+              </div>
+              <span class="switch">
+                <input type="checkbox" id="toggle-testimonials" checked
+                  onchange="togglePreviewBlock('block-testimonials', this.checked)">
+                <span class="slider"></span>
+              </span>
+            </label>
+
+            <label class="toggle-item">
+              <div class="toggle-info">
+                <span class="toggle-name">Dynamic Pricing Module</span>
+                <span class="toggle-price">+ ₹400</span>
+              </div>
+              <span class="switch">
+                <input type="checkbox" id="toggle-pricing" onchange="togglePreviewBlock('block-pricing', this.checked)">
+                <span class="slider"></span>
+              </span>
+            </label>
+
+            <label class="toggle-item">
+              <div class="toggle-info">
+                <span class="toggle-name">Interactive Contact Form</span>
+                <span class="toggle-price">+ ₹500</span>
+              </div>
+              <span class="switch">
+                <input type="checkbox" id="toggle-contact" checked
+                  onchange="togglePreviewBlock('block-contact', this.checked)">
+                <span class="slider"></span>
+              </span>
+            </label>
+
+            <label class="toggle-item">
+              <div class="toggle-info">
+                <span class="toggle-name">Footer Sitemap</span>
+                <span class="toggle-price">Included (Base)</span>
+              </div>
+              <span class="switch">
+                <input type="checkbox" id="toggle-footer" checked disabled>
+                <span class="slider"></span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="builder-summary">
+          <div class="summary-row">
+            <span class="summary-label">Base Plan Cost:</span>
+            <span class="summary-value" id="base-plan-cost">₹5,000</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Add-ons Subtotal:</span>
+            <span class="summary-value" id="addons-cost">₹1,400</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label" style="font-weight: 700; color: #fff;">Grand Total:</span>
+            <span class="summary-value total" id="grand-total-cost">₹<span>6,400</span></span>
+          </div>
+          <button class="btn-primary" style="margin-top: 0.5rem; justify-content: center;"
+            onclick="openOrderModal('custom')">
+            Book Dynamic Estimate
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+              <line x1="12" y1="4" x2="12" y2="20"></line>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Real-time visual canvas representing structural layout -->
+      <div class="builder-preview">
+        <div class="preview-header">
+          <div class="window-dots">
+            <div class="dot"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+          </div>
+          <div class="preview-address-bar" id="preview-url">your-retail-store.com</div>
+          <div class="preview-actions">
+            <!-- Simulated reload icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="color: var(--text-dim)">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="preview-body" id="preview-canvas">
+          <!-- Navigation header block -->
+          <div class="preview-block block-header active">
+            <div class="mini-row">
+              <div style="font-weight: 800; font-size: 0.7rem; color: #fff;">LOGO</div>
+              <div class="mini-text" style="width: 25%"></div>
+              <div class="mini-btn" style="padding: 2px 8px; font-size: 0.5rem;">Contact</div>
+            </div>
+          </div>
+
+          <!-- Hero block -->
+          <div class="preview-block block-hero active">
+            <div class="mini-title accent-bg" style="width: 45%; height: 10px;"></div>
+            <div class="mini-text" style="width: 75%;"></div>
+            <div class="mini-text" style="width: 60%;"></div>
+            <div class="mini-row" style="padding: 0; gap: 6px; width: auto; margin-top: 5px;">
+              <div class="mini-btn accent-bg" style="padding: 3px 10px; font-size: 0.55rem;">Action</div>
+              <div class="mini-btn"
+                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 3px 10px; font-size: 0.55rem;">
+                Learn More</div>
+            </div>
+          </div>
+
+          <!-- Features block -->
+          <div class="preview-block block-features active" id="block-features">
+            <div class="mini-grid">
+              <div class="mini-grid-item"></div>
+              <div class="mini-grid-item"></div>
+              <div class="mini-grid-item"></div>
+            </div>
+          </div>
+
+          <!-- Testimonials block -->
+          <div class="preview-block block-testimonials active" id="block-testimonials">
+            <div class="mini-row" style="justify-content: space-around; gap: 8px;">
+              <div class="mini-grid-item"
+                style="height: 50px; flex-grow: 1; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4px;">
+                <div class="mini-text" style="width: 80%"></div>
+                <div class="mini-text" style="width: 40%; margin-top: 4px; background: var(--primary-glow)"></div>
+              </div>
+              <div class="mini-grid-item"
+                style="height: 50px; flex-grow: 1; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4px;">
+                <div class="mini-text" style="width: 80%"></div>
+                <div class="mini-text" style="width: 40%; margin-top: 4px; background: var(--primary-glow)"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing block (disabled by default) -->
+          <div class="preview-block block-pricing" id="block-pricing" style="display: none;">
+            <div class="mini-row" style="justify-content: space-around; gap: 8px;">
+              <div class="mini-grid-item"
+                style="height: 60px; width: 60px; border-radius: 4px; border: 1.5px solid var(--primary);"></div>
+              <div class="mini-grid-item" style="height: 60px; width: 60px; border-radius: 4px;"></div>
+              <div class="mini-grid-item" style="height: 60px; width: 60px; border-radius: 4px;"></div>
+            </div>
+          </div>
+
+          <!-- Contact Form block -->
+          <div class="preview-block block-contact active" id="block-contact">
+            <div class="mini-row" style="flex-direction: column; gap: 6px; align-items: center;">
+              <div class="mini-title" style="width: 35%; height: 8px;"></div>
+              <div class="mini-text"
+                style="width: 60%; height: 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px;">
+              </div>
+              <div class="mini-btn accent-bg"
+                style="width: 60%; font-size: 0.5rem; text-align: center; height: 12px; line-height: 4px; padding: 0;">
+                Submit</div>
+            </div>
+          </div>
+
+          <!-- Footer block -->
+          <div class="preview-block block-footer active">
+            <div class="mini-row">
+              <div class="mini-text" style="width: 30%"></div>
+              <div class="mini-text" style="width: 15%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PRICING PACKAGES GRID (THE 5 TYPES)
+       ========================================== -->
+  <section class="pricing-section" id="pricing">
+    <h2 class="section-title">Compare Developer <span class="text-gradient">Packages</span></h2>
+    <p class="section-subtitle">
+      Find the perfect fit for your retail scale. Choose from simple utility solutions up to database-integrated
+      multi-purpose web systems.
+    </p>
+
+    <div class="pricing-grid">
+      <!-- Plan 1: Simple -->
+      <div class="pricing-card" id="card-simple">
+        <div class="card-header-info">
+          <span class="badge success">Static</span>
+          <h3 class="card-name">Simple Industrial</h3>
+          <p class="card-desc">For low industrial utility purpose. Crisp single-page landing site.</p>
+        </div>
+        <div class="price-container">
+          <span class="price-currency">₹</span>
+          <span class="price-amount">1,500</span>
+          <span class="price-period">/one-time</span>
+        </div>
+        <ul class="card-features">
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            1 Responsive Page
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Clean Layout Code
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Basic Contact Form
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            1 Revision Round
+          </li>
+        </ul>
+        <button class="card-btn" onclick="triggerCardBooking('simple', 1500)">Order Simple</button>
+      </div>
+
+      <!-- Plan 2: City Advanced -->
+      <div class="pricing-card" id="card-city">
+        <div class="card-header-info">
+          <span class="badge">Local SEO</span>
+          <h3 class="card-name">City Advanced</h3>
+          <p class="card-desc">Advanced site for localized business targeting just one city footprint.</p>
+        </div>
+        <div class="price-container">
+          <span class="price-currency">₹</span>
+          <span class="price-amount">2,000</span>
+          <span class="price-period">/one-time</span>
+        </div>
+        <ul class="card-features">
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Multi-section Single Page
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Local Google Map Link
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Interactive Contact Form
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Localized SEO Metadata
+          </li>
+        </ul>
+        <button class="card-btn" onclick="triggerCardBooking('city', 2000)">Order Advanced</button>
+      </div>
+
+      <!-- Plan 3: High Scale (Featured) -->
+      <div class="pricing-card featured" id="card-industrial">
+        <div class="featured-ribbon">Most Popular</div>
+        <div class="card-header-info">
+          <span class="badge gold">Full Stack</span>
+          <h3 class="card-name">High-Scale Industrial</h3>
+          <p class="card-desc">High industrial scale layout featuring Frontend, Backend, and Database.</p>
+        </div>
+        <div class="price-container">
+          <span class="price-currency">₹</span>
+          <span class="price-amount">5,000</span>
+          <span class="price-period">/one-time</span>
+        </div>
+        <ul class="card-features">
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Frontend + Backend Architecture
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Structured Database Schema
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Interactive Dashboard UI
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            API Endpoints Setup
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Secure Data Encryption
+          </li>
+        </ul>
+        <button class="card-btn" onclick="triggerCardBooking('industrial', 5000)">Order Full-Stack</button>
+      </div>
+
+      <!-- Plan 4: E-Commerce Store -->
+      <div class="pricing-card" id="card-ecommerce">
+        <div class="card-header-info">
+          <span class="badge">E-Shop</span>
+          <h3 class="card-name">E-Commerce Store</h3>
+          <p class="card-desc">For active retailers. Product catalogs, cart flows, and checkouts.</p>
+        </div>
+        <div class="price-container">
+          <span class="price-currency">₹</span>
+          <span class="price-amount">7,500</span>
+          <span class="price-period">/one-time</span>
+        </div>
+        <ul class="card-features">
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Dynamic Product Catalog
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Interactive Shopping Cart
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Payment Gateway Bridge
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Basic Orders CRM View
+          </li>
+        </ul>
+        <button class="card-btn" onclick="triggerCardBooking('ecommerce', 7500)">Order E-Shop</button>
+      </div>
+
+      <!-- Plan 5: Custom Enterprise -->
+      <div class="pricing-card" id="card-enterprise">
+        <div class="card-header-info">
+          <span class="badge">Bespoke</span>
+          <h3 class="card-name">Custom Enterprise</h3>
+          <p class="card-desc">Bespoke system matching highly specific multi-tenant business logics.</p>
+        </div>
+        <div class="price-container">
+          <span class="price-currency">₹</span>
+          <span class="price-amount">10,000</span>
+          <span class="price-period">/starting</span>
+        </div>
+        <ul class="card-features">
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Unlimited Page Structures
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Specialized Backend Core
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Custom ERP integrations
+          </li>
+          <li class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Dedicated Code Handover
+          </li>
+        </ul>
+        <button class="card-btn" onclick="triggerCardBooking('enterprise', 10000)">Inquire Enterprise</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION MARKETPLACE
+       ========================================== -->
+  <section class="marketplace-section" id="marketplace">
+    <h2 class="section-title">Component <span class="text-gradient">Marketplace</span></h2>
+    <p class="section-subtitle">
+      Don't need a complete site? Buy specific sections to upgrade your current website code layout.
+    </p>
+
+    <div class="marketplace-grid">
+      <!-- Item 1 -->
+      <div class="market-card">
+        <div class="market-card-top">
+          <div class="market-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+            </svg>
+          </div>
+          <span class="market-price">₹600</span>
+        </div>
+        <div class="market-card-mid">
+          <h4>Premium Hero Page Section</h4>
+          <p>An eye-catching visual intro module with dynamic headings, buttons, and responsive grid alignment.</p>
+        </div>
+        <div class="market-card-bot">
+          <button id="btn-market-hero" class="btn-add-preview" onclick="toggleMarketItem('hero', 600)">Add to
+            Sandbox</button>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="market-card">
+        <div class="market-card-top">
+          <div class="market-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+          </div>
+          <span class="market-price">₹400</span>
+        </div>
+        <div class="market-card-mid">
+          <h4>Grid features Showcase</h4>
+          <p>Clean grid displaying business statistics, service capabilities, or hardware specifications with hover
+            cards.</p>
+        </div>
+        <div class="market-card-bot">
+          <button id="btn-market-features" class="btn-add-preview active" onclick="toggleMarketItem('features', 400)">In
+            Sandbox</button>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="market-card">
+        <div class="market-card-top">
+          <div class="market-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <span class="market-price">₹500</span>
+        </div>
+        <div class="market-card-mid">
+          <h4>Testimonial Slider Pack</h4>
+          <p>Responsive slide transitions highlighting retailer reviews, star rates, and user avatars.</p>
+        </div>
+        <div class="market-card-bot">
+          <button id="btn-market-testimonials" class="btn-add-preview active"
+            onclick="toggleMarketItem('testimonials', 500)">In Sandbox</button>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="market-card">
+        <div class="market-card-top">
+          <div class="market-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M12 2v9"></path>
+              <path d="M8 5h8"></path>
+            </svg>
+          </div>
+          <span class="market-price">₹400</span>
+        </div>
+        <div class="market-card-mid">
+          <h4>Interactive Pricing Cards</h4>
+          <p>Set of detailed pricing layouts with toggling badges, check-mark lists, and CTA action triggers.</p>
+        </div>
+        <div class="market-card-bot">
+          <button id="btn-market-pricing" class="btn-add-preview" onclick="toggleMarketItem('pricing', 400)">Add to
+            Sandbox</button>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="market-card">
+        <div class="market-card-top">
+          <div class="market-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <span class="market-price">₹500</span>
+        </div>
+        <div class="market-card-mid">
+          <h4>Interactive Lead Contact Form</h4>
+          <p>Input forms validation logic with custom text fields, error notifications, and response alerts.</p>
+        </div>
+        <div class="market-card-bot">
+          <button id="btn-market-contact" class="btn-add-preview active" onclick="toggleMarketItem('contact', 500)">In
+            Sandbox</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       FAQ SECTION
+       ========================================== -->
+  <section class="faq-section" id="faq">
+    <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+    <p class="section-subtitle">Get answers to the most common queries about our developer services.</p>
+
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How does the WhatsApp order system work?</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          When you select a plan or build a custom website structure in the live sandbox and click "Book/Checkout", a
+          form will request your business details. Submitting this form compiles all your options into a structured text
+          message and automatically redirects you to WhatsApp with our developer contact number pre-filled.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What does the High-Scale plan database include?</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          Our ₹5,000 High-Scale plan is designed for complex data-driven requirements. It includes complete frontend
+          layouts, a lightweight Node.js/PHP backend server logic, and structured database tables (e.g. SQLite/MySQL)
+          for processing contact requests, logs, or static inventory lists securely.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Can I request design revisions after ordering?</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          Yes! Each package includes specific feedback iteration loops (ranging from 1 feedback round for Simple, up to
+          unlimited revisions for Custom Enterprise setups). We ensure the coded layout meets your expectations fully.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+            </path>
+          </svg>
+          <span>Website <span class="text-gradient">Developer Hub</span></span>
+        </a>
+        <p>Premium component and page code delivery tailored to retail merchants and industrial scale businesses.</p>
+      </div>
+      <div class="footer-links-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#sandbox">Sandbox Builder</a></li>
+          <li><a href="#pricing">Plan Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>WhatsApp: +91 7990683527</li>
+          <li><a href="mailto:niphadearnav@gmail.com" style="color: var(--text-muted);">niphadearnav@gmail.com</a></li>
+          <li>Hours: Mon - Sat (9am - 7pm)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Website Developer Hub. All rights reserved. Coded with high performance standards.</span>
+      <span>Direct WhatsApp checkout integration enabled.</span>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       MODAL: ORDER CONFIRMATION & INPUT
+       ========================================== -->
+  <div id="order-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Configure Store Details</h3>
+        <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="order-summary-box">
+          <div class="summary-heading">Selected Configurations</div>
+          <div class="summary-items" id="modal-summary-list">
+            <!-- Dynamic elements go here -->
+          </div>
+          <div class="summary-row" style="margin-top: 0.5rem;">
+            <span class="summary-label" style="font-weight: 700;">Grand Total:</span>
+            <span class="summary-value" id="modal-total-price"
+              style="color: var(--secondary); font-weight: 800; font-size: 1.25rem;">₹0</span>
+          </div>
+        </div>
+
+        <form id="order-form" onsubmit="submitWhatsAppOrder(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="form-biz-name">Business Name <span>*</span></label>
+              <input type="text" id="form-biz-name" class="form-input" placeholder="e.g. Kumar Groceries" required>
+            </div>
+            <div class="form-group">
+              <label for="form-contact-name">Retailer Name <span>*</span></label>
+              <input type="text" id="form-contact-name" class="form-input" placeholder="e.g. Rajesh Kumar" required>
+            </div>
+            <div class="form-group form-field-full">
+              <label for="form-contact-phone">Contact Phone Number <span>*</span></label>
+              <input type="tel" id="form-contact-phone" class="form-input" placeholder="e.g. +91 98765 43210" required>
+            </div>
+            <div class="form-group form-field-full">
+              <label for="form-notes">Special Instructions (Optional)</label>
+              <textarea id="form-notes" class="form-input"
+                placeholder="e.g. Custom theme coloring, specific icons, database queries needed..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-order-whatsapp">
+            <!-- WhatsApp SVG Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+              </path>
+            </svg>
+            Send Order via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
